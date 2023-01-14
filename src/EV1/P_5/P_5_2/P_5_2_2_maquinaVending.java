@@ -1,6 +1,6 @@
 package EV1.P_5.P_5_2;
 
-import static ProgramasPruebas.metodos.*;
+import static ProgramasPruebas.Metodos.*;
 
 public class P_5_2_2_maquinaVending {
     //    Daniel Alonso Lázaro - 2022
@@ -17,7 +17,7 @@ public class P_5_2_2_maquinaVending {
     Se debe dar el cambio correcto, con el menor número de monedas posibles. Quiero que aparezca en pantalla un
     mensaje de “INTRODUZCA IMPORTE EXACTO” si la máquina no dispone de monedas en 2 tipos de estas o más o si no
     dispone de monedas de un solo tipo y este es el de 5 cts., y que solo acepte este dinero.
-    Al finalizar el programa nos debe dar el total del dinero disponible en la máquina, por unidad monetaria
+    Al finalizar el programa nos debe dar el total del dinero disponible en la máquina, por unidad monetaria.
     */
     public static void main(String[] args) {
         int[] monedas = {200, 100, 50, 20, 10, 5};

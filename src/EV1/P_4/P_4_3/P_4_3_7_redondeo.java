@@ -1,7 +1,7 @@
 package EV1.P_4.P_4_3;
 
-import java.util.Locale;
 import java.util.Scanner;
+import java.util.Locale;
 
 public class P_4_3_7_redondeo {
     // Daniel Alonso Lázaro - 2022
