@@ -42,6 +42,7 @@ public class vendingMachine {
 
     public static Object[] menuOpciones(){
         //Devuelve un array para fijar la elección del producto y el precio asociado al mismo.
+        final int AGUA = 50, REFRESCO = 75, ZUMO = 95, CERVEZA = 135;
         int precio = 0;
         ImageIcon icono = new ImageIcon(
                 new ImageIcon("resources/vendingMachine/vending.png")
@@ -58,16 +59,16 @@ public class vendingMachine {
         switch (producto == null ? producto = "Salir" : producto) {
             case "Agua":
             case "Tonica":
-                printChoice(precio = 50, producto);
+                printChoice(precio = AGUA, producto);
                 break;
             case "Refresco":
-                printChoice(precio = 75, producto);
+                printChoice(precio = REFRESCO, producto);
                 break;
             case "Zumo":
-                printChoice(precio = 95, producto);
+                printChoice(precio = ZUMO, producto);
                 break;
             case "Cerveza":
-                printChoice(precio = 135, producto);
+                printChoice(precio = CERVEZA, producto);
                 break;
             case "Salir":
                 JOptionPane.showMessageDialog(
@@ -95,7 +96,7 @@ public class vendingMachine {
                 "PAGO",
                 JOptionPane.INFORMATION_MESSAGE,
                 icono,
-                new Object[] {"2€", "1€", "50 cts", "20 cts", "10 cts", "5 cts"}, "2€"));
+                new Object[]{"2€", "1€", "50 cts", "20 cts", "10 cts", "5 cts"}, "2€"));
         switch (userChoice == null ? "" : userChoice) {
             case "2€":
                 cents += 200;
@@ -343,7 +344,4 @@ public class vendingMachine {
         });
         temporizador.start();
     }
-
-
 }
-
