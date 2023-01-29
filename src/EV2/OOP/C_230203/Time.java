@@ -23,7 +23,6 @@ public class Time {
     /**
      * Constructor que inicializa los tres atributos de Hora: hora, minuto y segundo a 0.
      */
-
     public Time() {
         this(0, 0, 0);
     }
@@ -65,6 +64,7 @@ public class Time {
             + (minuto < 10 ? "0" + minuto:minuto)
             + ":"
             + (segundo < 10 ? "0" + segundo:segundo);
+        //return String.format("%02d:%02d:%02d", hora, minuto, segundo);
     }
 
     /**
@@ -125,11 +125,9 @@ public class Time {
      * Reinicia los segundos cada vez que los segundos sobrepasan 60.
      */
     public void addExtraSeconds() {
-        if (segundo >= 60) {
-            while (segundo >= 60) {
-                segundo -= 60;
-                minuto++;
-            }
+        while (segundo >= 60) {
+            segundo -= 60;
+            minuto++;
         }
     }
 
@@ -137,11 +135,9 @@ public class Time {
      * Añade horas cada vez que los minutos sobrepasan 60.
      */
     public void addExtraMinutes() {
-        if (minuto >= 60) {
-            while (minuto >= 60) {
-                minuto -= 60;
-                hora++;
-            }
+        while (minuto >= 60) {
+            minuto -= 60;
+            hora++;
         }
     }
 
@@ -149,12 +145,8 @@ public class Time {
      * Reinicia las horas cada vez que las horas sobrepasan 24.
      */
     public void addExtraHours(){
-        if (hora >= 24) {
-            while (hora >= 24) {
-                hora -= 24;
-            }
-
+        while (hora >= 24) {
+            hora -= 24;
         }
     }
-
 }
