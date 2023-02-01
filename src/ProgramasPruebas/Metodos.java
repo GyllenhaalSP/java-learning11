@@ -150,7 +150,7 @@ public class Metodos {
                 v[i] = rand.nextInt(bound+1);
         }else if(type.equalsIgnoreCase("double")) {
             for (int i = 0; i < v.length; i++)
-                v[i] = rand.nextDouble(bound+1);
+                v[i] = rand.nextDouble();
         }
     }
 
@@ -174,7 +174,7 @@ public class Metodos {
         }else if(type.equalsIgnoreCase("double")) {
             for (int i = 0; i < v.length; i++)
                 for (int j = 0; j < v[i].length; j++)
-                    v[i][j] = rand.nextDouble(bound+1);
+                    v[i][j] = rand.nextDouble();
         }
     }
 
@@ -257,15 +257,26 @@ public class Metodos {
                 new Object[]{"Agua", "Refresco", "Zumo", "Cerveza", "Tonica", "Salir"},
                 "Agua");
         switch (producto == null ? producto = "Salir" : producto) {
-            case "Agua", "Tonica" -> printChoice(precio = 50, producto);
-            case "Refresco" -> printChoice(precio = 75, producto);
-            case "Zumo" -> printChoice(precio = 95, producto);
-            case "Cerveza" -> printChoice(precio = 135, producto);
-            case "Salir" -> JOptionPane.showMessageDialog(
-                    null,
-                    "VUELVA PRONTO\nLE ESPERAMOS",
-                    "FINALIZANDO",
-                    JOptionPane.INFORMATION_MESSAGE);
+            case "Agua":
+            case "Tonica":
+                printChoice(precio = 50, producto);
+                break;
+            case "Refresco":
+                printChoice(precio = 75, producto);
+                break;
+            case "Zumo":
+                printChoice(precio = 95, producto);
+                break;
+            case "Cerveza":
+                printChoice(precio = 135, producto);
+                break;
+            case "Salir":
+                JOptionPane.showMessageDialog(
+                        null,
+                        "VUELVA PRONTO\nLE ESPERAMOS",
+                        "FINALIZANDO",
+                        JOptionPane.INFORMATION_MESSAGE);
+                break;
         }
         return new Object[]{producto, precio};
     }
@@ -287,15 +298,26 @@ public class Metodos {
                 icono,
                 new Object[]{"2€", "1€", "50 cts", "20 cts", "10 cts", "5 cts"}, "2€"));
         switch (userChoice == null ? "" : userChoice) {
-            case "2€" -> cents += 200;
-            case "1€" -> cents += 100;
-            case "50 cts" -> cents += 50;
-            case "20 cts" -> cents += 20;
-            case "10 cts" -> cents += 10;
-            case "5 cts" -> cents += 5;
-            default -> {
+            case "2€":
+                cents += 200;
+                break;
+            case "1€":
+                cents += 100;
+                break;
+            case "50 cts":
+                cents += 50;
+                break;
+            case "20 cts":
+                cents += 20;
+                break;
+            case "10 cts":
+                cents += 10;
+                break;
+            case "5 cts":
+                cents += 5;
+                break;
+            default:
                 return -1;
-            }
         }
         return cents;
     }
@@ -329,9 +351,9 @@ public class Metodos {
 
             if(cents > precio && contadorCambioBool){
                 //No hay para dar cambio
-                JOptionPane.showMessageDialog(null, """
-                                LA MÁQUINA NO DISPONE DE CAMBIO EN ESTOS MOMENTOS
-                                ¡INTRODUZCA IMPORTE EXACTO!""",
+                JOptionPane.showMessageDialog(null,
+                        "LA MÁQUINA NO DISPONE DE CAMBIO EN ESTOS MOMENTOS\n"
+                        +"¡INTRODUZCA IMPORTE EXACTO!",
                         "¡ATENCIÓN¡", JOptionPane.ERROR_MESSAGE);
                 cents = 0;
             }
@@ -481,21 +503,18 @@ public class Metodos {
     public static int insufficientCoins(boolean insuficiente, int precio, int whileCents) {
         //Devuelve el mensaje de dinero insuficiente y pone los céntimos a 0.
         if(insuficiente){
-            jDialog(String.format("""
-                                    POR FAVOR, CONTINUE INTRODUCIENDO MONEDAS
-                                    Faltan %.2f euros por introducir
-                                    """,
-                    Math.abs(((precio - whileCents) / 100.0))),
+            jDialog(String.format("POR FAVOR, CONTINUE INTRODUCIENDO MONEDAS\n"
+                                  +"Faltan %.2f euros por introducir\n",
+                            Math.abs(((precio - whileCents) / 100.0))),
                     "DINERO INSUFICIENTE", 0, 400, 150,
                     "resources/vendingMachine/warningRed.png");
             return 0;
         }else{
-            jDialog(String.format("""
-                                    Desafortunadamente, la máquina no dispone de cambio.
-                                    No se pueden devolver %.2f euros.
-                                    Iniciando proceso de devolución.
-                                    
-                                    Espere...""",
+            jDialog(String.format("Desafortunadamente, la máquina no dispone de cambio.\n" +
+                                  "No se pueden devolver %.2f euros.\n" +
+                                  "Iniciando proceso de devolución.\n" +
+                                  "\n" +
+                                  "Espere...",
                     Math.abs(((precio - whileCents) / 100.0))),
                     "PROCEDIENDO A LA DEVOLUCIÓN",
                     2, 430, 160, "resources/vendingMachine/infoGreen.png");
